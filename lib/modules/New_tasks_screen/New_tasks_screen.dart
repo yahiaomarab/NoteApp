@@ -16,6 +16,7 @@ class newtask extends StatelessWidget
     return  BlocConsumer<appcubit,appstates>(
       listener: (context,state){},
       builder: (context,state)=>ListView.separated(
+        physics: BouncingScrollPhysics(),
         itemBuilder: (context,index)=>itembuilder(appcubit.get(context).newtasks[index],context),
         separatorBuilder: (context,index)=>Padding(
           padding: const EdgeInsetsDirectional.only(

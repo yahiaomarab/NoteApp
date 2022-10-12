@@ -14,6 +14,8 @@ class archivedtask extends StatelessWidget {
       listener: (context, state) {},
       builder: (context, state) =>
           ListView.separated(
+            physics: BouncingScrollPhysics(),
+
             itemBuilder: (context, index) =>
                 itembuilder(appcubit
                     .get(context)

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:note_app/cubit/cubit.dart';
 
+import '../../modules/animation/animation_route.dart';
 import '../styles/colors.dart';
 
 Future<void> navto(context,Widget)
@@ -70,7 +71,7 @@ PreferredSizeWidget buildappbar(
   title: Text(title!),
   actions: actions,
 );
-Widget formfield (
+Widget formfield  (
     {
       required TextEditingController controller ,
       required TextInputType type ,
@@ -89,7 +90,9 @@ Widget formfield (
   validator: validate,
   obscureText: isPassword,
   controller: controller,
+
   decoration: InputDecoration(
+
       labelText: label,
       prefixIcon: Icon(prefix ,),
       suffixIcon: GestureDetector(
@@ -115,7 +118,8 @@ Widget button(
     )
 {
   return Container(
-    color: Colors.grey[400],
+
+    color:  Colors.grey[400],
     width: width,
     height: x,
     child: MaterialButton(
@@ -290,3 +294,11 @@ Widget buildSearchItem(Map model ,context)=>Dismissible(
     appcubit.get(context).deletedatabase(id: model['id']);
   },
 );
+Future<void> navwithanimation(context,Widget)
+async {
+  Navigator.of(context).push(
+      slideright(page: Widget)
+  );
+
+}
+

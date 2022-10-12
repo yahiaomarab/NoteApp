@@ -173,5 +173,6 @@ class appcubit extends Cubit<appstates>
     });
     emit(SocialGetSearchUserSuccessState());
   }
+
   }
 

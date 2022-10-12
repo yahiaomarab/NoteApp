@@ -18,8 +18,6 @@ class todo extends StatelessWidget
   var timecontroller=TextEditingController();
   var datecontroller=TextEditingController();
 
-
-
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -41,7 +39,7 @@ class todo extends StatelessWidget
               IconButton(
                 icon: Icon(IconBroken.Search),
                 onPressed: (){
-                  navto(context, Search_screen());
+                  navwithanimation(context, Search_screen());
                 },
               ),
             ],
@@ -60,7 +58,9 @@ class todo extends StatelessWidget
                   }
                 }
                 else {
-                  Scaffoldkey.currentState!.showBottomSheet((context) {
+                  Scaffoldkey.currentState!.showBottomSheet
+                    (
+                          (context) {
                     return Padding(
                       padding: const EdgeInsets.all(5.0),
                       child: Container(
@@ -149,7 +149,8 @@ class todo extends StatelessWidget
                         ),
                       ),
                     );
-                  }).closed.then((value) {
+                  }
+                  ).closed.then((value) {
                     appcubit.get(context).changebottomsheet(isshow: false, icon: IconBroken.Edit);
                   });
                   appcubit.get(context).changebottomsheet(isshow: true, icon: IconBroken.Add_User);
@@ -194,6 +195,4 @@ class todo extends StatelessWidget
       ),
     );
   }
-
-
 }
